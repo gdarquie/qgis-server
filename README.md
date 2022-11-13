@@ -38,3 +38,15 @@ Then https://docs.qgis.org/3.22/en/docs/server_manual/getting_started.html#https
 
 All this commands are in dockerfile.
 
+```
+vim /etc/nginx/nginx.conf
+```
+
+```
+location /qgisserver {
+    gzip           off;
+    include        fastcgi_params;
+    fastcgi_pass   unix:/var/run/qgisserver.socket;
+}
+```
+
